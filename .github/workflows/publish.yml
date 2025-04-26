@@ -19,7 +19,7 @@ jobs:
       contents: read
       packages: write
     env:
-      IMAGE_NAME: app-backend
+      IMAGE_NAME: qolum-backend-vugar-dev
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITHUB_REPO_OWNER: ${{ github.repository_owner }}
       IMAGE_TAG: ${{ github.sha }}
@@ -62,13 +62,8 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
-           LOWER_OWNER=$(echo "${GITHUB_REPO_OWNER}" | tr '[:upper:]' '[:lower:]')
-           IMAGE="ghcr.io/${LOWER_OWNER}/${IMAGE_NAME}:${TAG}"
-           echo "Docker image: $IMAGE"
-           docker build -t $IMAGE .
-           docker push $IMAGE
-#           docker build -t ghcr.io/${{ github.actor }}/${IMAGE_NAME}:$TAG .
-#           docker push ghcr.io/${{ github.actor }}/${IMAGE_NAME}:$TAG
+           docker build -t ghcr.io/${{ github.actor }}/${IMAGE_NAME}:$TAG .
+           docker push ghcr.io/${{ github.actor }}/${IMAGE_NAME}:$TAG
 
 
       #      - name: Setup SSH
