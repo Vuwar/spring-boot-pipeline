@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy the Maven wrapper
 COPY mvnw .
-RUN CHMOD +X mvnw
+RUN #CHMOD +X mvnw
 COPY .mvn .mvn
 
 # Copy the pom.xml file and download dependencies
