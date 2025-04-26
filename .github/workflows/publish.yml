@@ -81,7 +81,6 @@ jobs:
         run: |
           scp -i $HOME/.ssh/private_key -P $SERVER_PORT -o StrictHostKeyChecking=no docker-compose.$ENV.yml $SERVER_USER@$SERVER_HOST:~/workspace/backend/vugar/
 
-
       - name: Debug Environment Variables
         run: |
             echo "GITHUB_REPO_OWNER: ${GITHUB_REPO_OWNER}"
