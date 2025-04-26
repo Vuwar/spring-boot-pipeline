@@ -9,7 +9,8 @@ on:
       environment:
         description: 'Environment to deploy (dev or prod)'
         required: true
-        default: 'dev'
+        default: 'dev'git config --global core.autocrlf input
+
 
 jobs:
   deploy:
